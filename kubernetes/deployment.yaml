@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nuvra-web-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nuvra-web
+  template:
+    metadata:
+      labels:
+        app: nuvra-web
+    spec:
+      containers:
+      - name: nuvra-web
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
